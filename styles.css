@@ -345,3 +345,9 @@ footer > p { grid-column: 1 / -1; font-size: 12px; }
   .service-card { min-height: auto; }
   footer { grid-template-columns: 1fr; }
 }
+
+.brand-logo {
+  width: 190px;
+  height: auto;
+  display: block;
+}
