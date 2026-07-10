@@ -14,3 +14,5 @@ navigation.querySelectorAll("a").forEach((link) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const revealElements=document.querySelectorAll(".reveal");const revealObserver=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add("visible");revealObserver.unobserve(entry.target);}});},{threshold:.12});revealElements.forEach((element)=>revealObserver.observe(element));
