@@ -443,6 +443,40 @@ h3 { margin: 8px 0; }
   text-align: center;
 }
 
+.payment-note a {
+  color: #806600;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.policy-section { background: var(--cream); }
+
+.policy-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 55px);
+  border: 1px solid #d7d0bd;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.policy-content h2 {
+  margin-top: 38px;
+  margin-bottom: 12px;
+  color: var(--black);
+  font-size: clamp(25px, 3vw, 34px);
+}
+
+.policy-content p { color: #4e4e4e; }
+
+.policy-notice {
+  margin-top: 40px;
+  padding: 20px;
+  border-left: 4px solid var(--gold);
+  background: #f4eedf;
+  font-size: 13px;
+}
+
 .cta-section {
   padding: 85px clamp(20px, 7vw, 100px);
   text-align: center;

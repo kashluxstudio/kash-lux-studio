@@ -1,12 +1,13 @@
-# Ka$h Lux Studio Website v4
+# Ka$h Lux Studio Website v8
 
-This package contains the cleaned and unified Ka$h Lux Studio website.
+This package contains the animated Ka$h Lux Studio website with its verified PayPal deposit link and Deposit & Refund Policy.
 
 ## Upload these files to GitHub
 
 - index.html
 - pricing.html
 - consultation.html
+- deposit-policy.html
 - styles.css
 - script.js
 - kash-lux-logo.png
