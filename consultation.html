@@ -118,6 +118,20 @@
     <p>© <span id="year"></span> Ka$h Lux Studio. All rights reserved.</p>
   </footer>
 
+  <script>
+const params = new URLSearchParams(window.location.search);
+const selectedService = params.get("service");
+
+if (selectedService) {
+  const serviceSelect = document.getElementById("service");
+
+  if (serviceSelect) {
+    serviceSelect.value = selectedService;
+  }
+}
+</script>
+  
   <script src="script.js"></script>
+  
 </body>
 </html>
