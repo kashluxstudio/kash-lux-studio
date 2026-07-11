@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a free consultation with Ka$h Lux Studio for websites, branding, automation, and digital business systems.">
+  <meta name="theme-color" content="#090909">
+  <title>Free Consultation | Ka$h Lux Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Ka$h Lux Studio home">
+      <img class="brand-logo" src="kash-lux-logo.png" alt="Ka$h Lux Studio logo">
+    </a>
+
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="consultation.html" aria-current="page">Consultation</a>
+    </nav>
+
+    <a class="button header-button" href="pricing.html">View Pricing</a>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <p class="eyebrow">Free Consultation</p>
+        <h1>Let’s Talk About<br><span>Your Business.</span></h1>
+        <p class="hero-copy">Tell us what you are building, what is getting in your way, and what kind of support you need.</p>
+      </div>
+    </section>
+
+    <section class="section consultation-section">
+      <div class="consultation-info reveal">
+        <p class="eyebrow">What You’ll Get</p>
+        <h2>A clear next step for your business</h2>
+
+        <div class="consultation-benefits">
+          <div><strong>1</strong><p>A review of your business goal and current setup.</p></div>
+          <div><strong>2</strong><p>Recommendations for the best service or system.</p></div>
+          <div><strong>3</strong><p>A clear plan for moving your project forward.</p></div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" action="https://formsubmit.co/HHR1000@Outlook.com" method="POST">
+        <input type="hidden" name="_subject" value="New Free Consultation Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <label>Full name<input type="text" name="name" required></label>
+        <label>Email address<input type="email" name="email" required></label>
+        <label>Phone number<input type="tel" name="phone"></label>
+        <label>Business name<input type="text" name="business"></label>
+
+        <label>
+          What do you need help with?
+          <select name="service" id="service" required>
+            <option value="">Choose one</option>
+            <option value="Starter Website">Starter Website</option>
+            <option value="Brand Identity">Brand Identity</option>
+            <option value="Business Automation">Business Automation</option>
+            <option value="Digital Business System">Digital Business System</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </label>
+
+        <label>
+          Estimated budget
+          <select name="budget">
+            <option value="">Choose one</option>
+            <option>Under $250</option>
+            <option>$250–$500</option>
+            <option>$500–$1,000</option>
+            <option>$1,000+</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+
+        <label>Tell us about your project<textarea name="message" rows="6" required></textarea></label>
+        <button class="button" type="submit">Request My Free Consultation</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <img class="footer-logo" src="kash-lux-logo.png" alt="Ka$h Lux Studio">
+      <p>Build Your Brand. Grow Your Income. Create Your Future.</p>
+    </div>
+
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="consultation.html">Consultation</a>
+    </nav>
+
+    <p>© <span id="year"></span> Ka$h Lux Studio. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const selectedService = params.get("service");
+    const serviceSelect = document.getElementById("service");
+
+    if (selectedService && serviceSelect) {
+      serviceSelect.value = selectedService;
+    }
+  </script>
+</body>
+</html>
