@@ -33,16 +33,10 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    {
-      threshold: 0.12
-    }
+    { threshold: 0.12 }
   );
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
+  revealElements.forEach((element) => revealObserver.observe(element));
 } else {
-  revealElements.forEach((element) => {
-    element.classList.add("visible");
-  });
+  revealElements.forEach((element) => element.classList.add("visible"));
 }
