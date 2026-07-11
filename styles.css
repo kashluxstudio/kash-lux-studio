@@ -425,6 +425,24 @@ h3 { margin: 8px 0; }
 .pricing-card li { margin-bottom: 10px; }
 .pricing-card .button { margin-top: auto; text-align: center; }
 
+.pricing-card .payment-button {
+  margin-top: 12px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.pricing-card .payment-button:hover {
+  background: #242424;
+}
+
+.payment-note {
+  margin: 12px 0 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
 .cta-section {
   padding: 85px clamp(20px, 7vw, 100px);
   text-align: center;
