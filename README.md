@@ -1,6 +1,6 @@
-# Ka$h Lux Studio Website v8
+# Ka$h Lux Studio Website v10
 
-This package contains the animated Ka$h Lux Studio website with its verified PayPal deposit link and Deposit & Refund Policy.
+This package contains the animated Ka$h Lux Studio website with larger responsive logos, its verified PayPal deposit link, client policies, Privacy Policy, and Terms of Service.
 
 ## Upload these files to GitHub
 
@@ -8,6 +8,8 @@ This package contains the animated Ka$h Lux Studio website with its verified Pay
 - pricing.html
 - consultation.html
 - deposit-policy.html
+- privacy-policy.html
+- terms.html
 - styles.css
 - script.js
 - kash-lux-logo.png
