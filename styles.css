@@ -388,6 +388,12 @@ h3 { margin: 8px 0; }
 
 .form-note { margin: 0; color: #aaa; font-size: 12px; }
 
+.facebook-button {
+  margin-top: 24px;
+  background: transparent;
+  color: var(--gold);
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
