@@ -24,10 +24,17 @@ This package contains the animated Ka$h Lux Studio website with larger responsiv
 6. Wait about one minute.
 7. Refresh your GitHub Pages website.
 
-## Contact form
+## Contact forms
 
-The forms are configured to send to:
+The homepage contact form (`index.html`) and consultation form
+(`consultation.html`) submit directly by HTTP POST to:
 
-`HHR1000@Outlook.com`
+`https://hooks.kashluxstudio.org/webhook/kash-lux-lead`
 
-The first FormSubmit submission may require activation through a confirmation email.
+Each submission includes a `form_source` value identifying the originating
+form and a `company_website` field intended for spam screening.
+
+The website forms do not use FormSubmit, so FormSubmit activation is not
+required. Processing, storage, notifications, and the response displayed
+after submission are determined by the webhook backend. This repository
+does not establish delivery to a particular email inbox.
