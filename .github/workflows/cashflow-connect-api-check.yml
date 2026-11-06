@@ -1,0 +1,25 @@
+name: CashFlow Connect API checks
+
+on:
+  pull_request:
+    paths:
+      - "cashflow-connect/api/**"
+      - ".github/workflows/cashflow-connect-api-check.yml"
+  push:
+    branches:
+      - "feature/cfc-secure-backend"
+    paths:
+      - "cashflow-connect/api/**"
+      - ".github/workflows/cashflow-connect-api-check.yml"
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check Worker and browser adapter syntax
+        working-directory: cashflow-connect/api
+        run: npm run check
