@@ -1,4 +1,4 @@
-name: CashFlow Connect API checks
+name: Ka$hFlow Connect API checks
 
 on:
   pull_request:
