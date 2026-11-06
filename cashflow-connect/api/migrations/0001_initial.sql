@@ -1,0 +1,16 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS tenants(id TEXT PRIMARY KEY,name TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'active' CHECK(status IN ('active','suspended','closed')),created_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS users(email TEXT PRIMARY KEY COLLATE NOCASE,identity_subject TEXT NOT NULL DEFAULT '',created_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS workspace_memberships(workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,email TEXT NOT NULL COLLATE NOCASE REFERENCES users(email) ON DELETE CASCADE,role TEXT NOT NULL CHECK(role IN ('owner','admin','staff','read_only')),created_at TEXT NOT NULL,PRIMARY KEY(workspace_id,email));
+CREATE TABLE IF NOT EXISTS leads(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,name TEXT NOT NULL,business TEXT,email TEXT,phone TEXT,service TEXT,value REAL,source TEXT,status TEXT NOT NULL DEFAULT 'New',follow_up_at TEXT,notes TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_leads_ws_created ON leads(workspace_id,created_at);
+CREATE TABLE IF NOT EXISTS customers(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,name TEXT NOT NULL,email TEXT,phone TEXT,address TEXT,service TEXT,status TEXT NOT NULL DEFAULT 'Active',notes TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_customers_ws_created ON customers(workspace_id,created_at);
+CREATE TABLE IF NOT EXISTS appointments(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,customer_id TEXT,customer_name TEXT NOT NULL,service TEXT NOT NULL,starts_at TEXT NOT NULL,ends_at TEXT,status TEXT NOT NULL DEFAULT 'Requested',notes TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_appointments_ws_start ON appointments(workspace_id,starts_at);
+CREATE TABLE IF NOT EXISTS invoices(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,customer_id TEXT,customer_name TEXT NOT NULL,invoice_number TEXT,amount REAL NOT NULL CHECK(amount>=0),currency TEXT NOT NULL DEFAULT 'USD',due_at TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'Draft',notes TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_invoices_ws_due ON invoices(workspace_id,due_at);
+CREATE TABLE IF NOT EXISTS tasks(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,title TEXT NOT NULL,due_at TEXT,status TEXT NOT NULL DEFAULT 'open',assigned_email TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_tasks_ws_due ON tasks(workspace_id,due_at);
+CREATE TABLE IF NOT EXISTS audit_logs(id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,actor_email TEXT NOT NULL,action TEXT NOT NULL,resource TEXT NOT NULL,record_id TEXT,created_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_audit_ws_created ON audit_logs(workspace_id,created_at);
