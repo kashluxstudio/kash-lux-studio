@@ -1,4 +1,4 @@
-// CashFlow Connect browser API adapter.
+// Ka$hFlow Connect browser API adapter.
 // Cloudflare Access protects the app and injects the signed identity assertion.
 // Never put an Access token, API secret, or workspace authorization decision in localStorage.
 let activeWorkspaceId = null;
@@ -15,11 +15,11 @@ async function request(path, options = {}) {
     cache: "no-store"
   });
   const result = response.status === 204 ? null : await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(result?.error || "CashFlow Connect request failed (" + response.status + ")");
+  if (!response.ok) throw new Error(result?.error || "Ka$hFlow Connect request failed (" + response.status + ")");
   return result;
 }
 
-export const CashFlowAPI = {
+export const KashFlowAPI = {
   async me() { return request("me"); },
   async workspaces() { return request("workspaces"); },
   selectWorkspace(id) {
