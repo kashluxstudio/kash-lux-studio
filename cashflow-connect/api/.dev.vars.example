@@ -1,0 +1,1 @@
+ACCESS_ISSUER=https://YOUR_TEAM.cloudflareaccess.com\nACCESS_AUD=YOUR_ACCESS_APPLICATION_AUD\nAPP_ORIGIN=http://localhost:8788\n
